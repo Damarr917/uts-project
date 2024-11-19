@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Joki Rank Mobile Legends</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <img src="image/unnamed.webp" alt="Logo Game" class="logo">
+        <div class="header-text">
+            <h1>Joki Rank Mobile Legends</h1>
+            <p>Proses Cepat, Layanan 24/7</p>
+        </div>
+    </header>
+
+    <main>
+        <h2>Pilih Rank yang Ingin Dicapai!!</h2>
+        <section id="services">
+            <div class="rank-container">
+                <div class="rank-column">
+                    <div class="rank-box" onclick="selectService('Master', 3000)">
+                        <h3>Master</h3>
+                        <p>3.000</p>
+                    </div>
+                    <div class="rank-box" onclick="selectService('Grandmaster', 4000)">
+                        <h3>Grandmaster</h3>
+                        <p>4.000</p>
+                    </div>
+                    <div class="rank-box" onclick="selectService('Epic', 5000)">
+                        <h3>Epic</h3>
+                        <p>5.000</p>
+                    </div>
+                </div>
+
+                <div class="rank-column">
+                    <div class="rank-box" onclick="selectService('Legend', 6000)">
+                        <h3>Legend</h3>
+                        <p>6.000</p>
+                    </div>
+                    <div class="rank-box" onclick="selectService('Mythic', 7000)">
+                        <h3>Mythic</h3>
+                        <p>7.000</p>
+                    </div>
+                    <div class="rank-box" onclick="selectService('Mythic Honor', 8000)">
+                        <h3>Mythic Honor</h3>
+                        <p>8.000</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="payment-options">
+                <label for="paymentMethod">Metode Pembayaran:</label><br />
+                <select id="paymentMethod">
+                    <option value="qris">QRIS</option>
+                    <option value="virtual_account">Virtual Account</option>
+                </select><br /><br />
+
+                <button type="button" id="submitOrder">Kirim Pesanan</button>
+            </div>
+
+            <div id="confirmationMessage"></div>
+        </section>
+    </main>
+
+    <footer>
+        <p> Mikazuu_Store</p>
+    </footer>
+
+    <script>
+        function selectService(rank, price){
+            
+            const confirmationMessage = `Anda memilih layanan rank ${rank} dengan harga ${price} IDR.`;
+            document.getElementById('confirmationMessage').textContent = confirmationMessage;
+        }
+
+        document.getElementById('submitOrder').addEventListener('click', function() {
+            const paymentMethod = document.getElementById('paymentMethod').value;
+            const confirmationMessage = document.getElementById('confirmationMessage').textContent;
+
+            if (confirmationMessage === '') {
+                alert('Harap pilih rank terlebih dahulu.');
+                return;
+            }
+
+            alert(`Pesanan Anda berhasil! Metode Pembayaran: ${paymentMethod}.`);
+        });
+    </script>
+</body>
+</html>
